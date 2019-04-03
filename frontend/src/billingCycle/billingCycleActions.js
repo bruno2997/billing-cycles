@@ -34,3 +34,10 @@ export function create(values) {
     //     type: 'TEMP'
     // }
 }
+
+export function showUpdate(billingCycles) {
+    return [
+        showTabs('tabUpdate'),
+        selectTab('tabUpdate')
+    ]
+}
