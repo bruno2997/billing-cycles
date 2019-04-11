@@ -9,16 +9,16 @@ import labelAndInput from '../common/form/labelAndInput'
 class billingCycleForm extends Component {
 
     render() {
-        const { handleSubmit } = this.props
+        const { handleSubmit, readOnly } = this.props
         //console.log(handleSubmit)
         return (
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
-                    <Field name='name' component={labelAndInput} 
+                    <Field name='name' component={labelAndInput} readOnly={readOnly}
                         label='Nome' cols='12 4' placeholder='Informe o nome' />
-                    <Field name='month' component={labelAndInput} type='number'
+                    <Field name='month' component={labelAndInput} type='number' readOnly={readOnly}
                         label='Mês' cols='12 4' placeholder='Informe o mês' />
-                    <Field name='year' component={labelAndInput} type='number'
+                    <Field name='year' component={labelAndInput} type='number' readOnly={readOnly}
                         label='Ano' cols='12 4' placeholder='Informe o ano' />
                 </div>
                 <div className='box-footer'>
@@ -32,5 +32,7 @@ class billingCycleForm extends Component {
 }
 
 billingCycleForm = reduxForm({ form: 'billingCycleForm', destroyOnUnmount: false })(billingCycleForm)
-const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ 
+    init
+}, dispatch)
 export default connect(null, mapDispatchToProps)(billingCycleForm)
